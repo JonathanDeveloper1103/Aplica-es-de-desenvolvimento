@@ -5,13 +5,13 @@ const baseStyles =
   "inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3.5 text-sm font-medium tracking-wide transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-60";
 
 const variants = {
-  primary: "bg-navy text-cream hover:bg-navy-light",
-  gold: "bg-gold text-navy-dark hover:bg-gold-light",
+  primary: "bg-green text-cream hover:bg-green-light",
+  gold: "bg-gold text-green-dark hover:bg-gold-light",
   outline:
-    "border border-navy/30 text-navy hover:border-navy hover:bg-navy/5",
+    "border border-green/30 text-green hover:border-green hover:bg-green/5",
   "outline-light":
     "border border-cream/40 text-cream hover:border-cream hover:bg-cream/10",
-  ghost: "text-navy hover:bg-navy/5",
+  ghost: "text-green hover:bg-green/5",
 } as const;
 
 type Variant = keyof typeof variants;

@@ -6,7 +6,7 @@ import { siteConfig } from "@/data/site-config";
 
 export default function Differentiators() {
   return (
-    <section className="bg-navy py-24 sm:py-28">
+    <section className="bg-green py-24 sm:py-28">
       <Container>
         <Reveal>
           <SectionTitle

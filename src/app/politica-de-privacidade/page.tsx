@@ -13,11 +13,11 @@ export default function PrivacyPolicyPage() {
   return (
     <main className="bg-cream py-28">
       <Container className="max-w-3xl">
-        <Link href="/" className="text-sm text-navy underline underline-offset-2">
+        <Link href="/" className="text-sm text-green underline underline-offset-2">
           ← Voltar ao início
         </Link>
 
-        <h1 className="mt-6 font-serif text-3xl text-navy sm:text-4xl">
+        <h1 className="mt-6 font-serif text-3xl text-green sm:text-4xl">
           Política de Privacidade
         </h1>
         <p className="mt-2 text-sm text-ink-soft">
@@ -36,7 +36,7 @@ export default function PrivacyPolicyPage() {
             publicação em produção.
           </p>
 
-          <h2 className="font-serif text-xl text-navy">
+          <h2 className="font-serif text-xl text-green">
             1. Dados coletados
           </h2>
           <p>
@@ -46,7 +46,7 @@ export default function PrivacyPolicyPage() {
             sensível é solicitado.
           </p>
 
-          <h2 className="font-serif text-xl text-navy">
+          <h2 className="font-serif text-xl text-green">
             2. Finalidade do tratamento
           </h2>
           <p>
@@ -55,7 +55,7 @@ export default function PrivacyPolicyPage() {
             compartilhados com terceiros para fins comerciais.
           </p>
 
-          <h2 className="font-serif text-xl text-navy">
+          <h2 className="font-serif text-xl text-green">
             3. Consentimento
           </h2>
           <p>
@@ -63,7 +63,7 @@ export default function PrivacyPolicyPage() {
             titular dos dados, marcada no próprio formulário antes do envio.
           </p>
 
-          <h2 className="font-serif text-xl text-navy">
+          <h2 className="font-serif text-xl text-green">
             4. Direitos do titular
           </h2>
           <p>
@@ -76,7 +76,7 @@ export default function PrivacyPolicyPage() {
             .
           </p>
 
-          <h2 className="font-serif text-xl text-navy">
+          <h2 className="font-serif text-xl text-green">
             5. Contato
           </h2>
           <p>

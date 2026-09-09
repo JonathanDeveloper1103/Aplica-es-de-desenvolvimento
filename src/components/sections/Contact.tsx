@@ -49,14 +49,14 @@ export default function Contact() {
             const Icon = item.icon;
             const content = (
               <div className="flex items-start gap-4">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy/5 text-navy">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-green/5 text-green">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">
                     {item.label}
                   </p>
-                  <p className="mt-1 text-sm leading-relaxed text-navy">
+                  <p className="mt-1 text-sm leading-relaxed text-green">
                     {item.value}
                   </p>
                 </div>

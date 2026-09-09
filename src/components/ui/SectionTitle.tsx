@@ -38,7 +38,7 @@ export default function SectionTitle({
       <h2
         className={cn(
           "font-serif text-3xl leading-tight sm:text-4xl",
-          light ? "text-cream" : "text-navy",
+          light ? "text-cream" : "text-green",
         )}
       >
         {title}

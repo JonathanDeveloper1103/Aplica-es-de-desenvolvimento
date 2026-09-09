@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 import SocialIcon from "@/components/shared/SocialIcon";
+import Logo from "@/components/shared/Logo";
 import { siteConfig } from "@/data/site-config";
 
 const FOOTER_LINKS = [
@@ -14,11 +15,13 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-navy-dark text-cream/70">
+    <footer className="bg-green-dark text-cream/70">
       <Container className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <p className="font-serif text-lg text-cream">{siteConfig.firmName}</p>
-          <p className="mt-3 text-sm leading-relaxed">{siteConfig.tagline}</p>
+          <div className="flex items-center gap-3">
+            <Logo tone="onDark" full />
+          </div>
+          <p className="mt-4 text-sm leading-relaxed">{siteConfig.tagline}</p>
           <p className="mt-3 text-xs text-cream/50">{siteConfig.oabInfo}</p>
         </div>
 

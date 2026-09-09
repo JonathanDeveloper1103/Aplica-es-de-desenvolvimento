@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import Container from "@/components/ui/Container";
-import { siteConfig } from "@/data/site-config";
+import Logo from "@/components/shared/Logo";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -41,20 +41,14 @@ export default function Header() {
           : "bg-transparent",
       )}
     >
-      <Container className="flex h-20 items-center justify-between gap-4">
-        <a
-          href="#inicio"
-          className={cn(
-            "min-w-0 shrink truncate font-serif text-lg tracking-wide transition-colors duration-300",
-            scrolled || menuOpen ? "text-navy" : "text-cream",
-          )}
-        >
-          {siteConfig.firmName}
+      <Container className="flex h-20 max-w-7xl items-center justify-between gap-4">
+        <a href="#inicio" className="flex min-w-0 shrink items-center gap-3">
+          <Logo tone={scrolled || menuOpen ? "onLight" : "onDark"} />
         </a>
 
         <nav
           aria-label="Navegação principal"
-          className="hidden shrink-0 items-center gap-6 xl:gap-8 lg:flex"
+          className="hidden shrink-0 items-center gap-4 lg:flex xl:gap-8"
         >
           {NAV_LINKS.map((link) => (
             <a
@@ -63,7 +57,7 @@ export default function Header() {
               className={cn(
                 "whitespace-nowrap text-xs font-medium uppercase tracking-[0.1em] transition-colors duration-300 xl:tracking-[0.14em]",
                 scrolled
-                  ? "text-ink-soft hover:text-navy"
+                  ? "text-ink-soft hover:text-green"
                   : "text-cream/85 hover:text-cream",
               )}
             >
@@ -73,10 +67,10 @@ export default function Header() {
           <a
             href="#contato"
             className={cn(
-              "whitespace-nowrap rounded-sm border px-5 py-2.5 text-xs font-medium uppercase tracking-[0.14em] transition-colors duration-300",
+              "whitespace-nowrap rounded-sm border px-4 py-2.5 text-xs font-medium uppercase tracking-[0.14em] transition-colors duration-300 xl:px-5",
               scrolled
-                ? "border-navy text-navy hover:bg-navy hover:text-cream"
-                : "border-cream/60 text-cream hover:bg-cream hover:text-navy",
+                ? "border-green text-green hover:bg-green hover:text-cream"
+                : "border-cream/60 text-cream hover:bg-cream hover:text-green",
             )}
           >
             Fale conosco
@@ -91,7 +85,7 @@ export default function Header() {
           aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
           className={cn(
             "flex h-10 w-10 items-center justify-center rounded-sm lg:hidden",
-            scrolled || menuOpen ? "text-navy" : "text-cream",
+            scrolled || menuOpen ? "text-green" : "text-cream",
           )}
         >
           {menuOpen ? (
@@ -119,7 +113,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="rounded-sm px-2 py-3 text-sm font-medium uppercase tracking-[0.1em] text-navy/90 transition-colors hover:bg-navy/5"
+                className="rounded-sm px-2 py-3 text-sm font-medium uppercase tracking-[0.1em] text-green/90 transition-colors hover:bg-green/5"
               >
                 {link.label}
               </a>
@@ -127,7 +121,7 @@ export default function Header() {
             <a
               href="#contato"
               onClick={() => setMenuOpen(false)}
-              className="mt-3 rounded-sm bg-navy px-4 py-3.5 text-center text-sm font-medium uppercase tracking-[0.1em] text-cream"
+              className="mt-3 rounded-sm bg-green px-4 py-3.5 text-center text-sm font-medium uppercase tracking-[0.1em] text-cream"
             >
               Fale conosco
             </a>

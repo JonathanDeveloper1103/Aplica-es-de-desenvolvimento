@@ -11,10 +11,10 @@ export default function PracticeAreaCard({ area }: PracticeAreaCardProps) {
 
   return (
     <div className="group flex h-full flex-col rounded-sm border border-border-soft bg-white p-8 transition-colors duration-200 hover:border-gold/50">
-      <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-navy/5 text-navy">
+      <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-green/5 text-green">
         <Icon className="h-5 w-5" aria-hidden="true" />
       </div>
-      <h3 className="font-serif text-xl text-navy">{area.name}</h3>
+      <h3 className="font-serif text-xl text-green">{area.name}</h3>
       <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-soft">
         {area.shortDescription}
       </p>
@@ -24,7 +24,7 @@ export default function PracticeAreaCard({ area }: PracticeAreaCardProps) {
         )}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-gold transition-colors duration-200 group-hover:text-navy"
+        className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-gold transition-colors duration-200 group-hover:text-green"
       >
         Falar conosco
         <ArrowRight

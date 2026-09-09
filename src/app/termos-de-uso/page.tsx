@@ -12,11 +12,11 @@ export default function TermsOfUsePage() {
   return (
     <main className="bg-cream py-28">
       <Container className="max-w-3xl">
-        <Link href="/" className="text-sm text-navy underline underline-offset-2">
+        <Link href="/" className="text-sm text-green underline underline-offset-2">
           ← Voltar ao início
         </Link>
 
-        <h1 className="mt-6 font-serif text-3xl text-navy sm:text-4xl">
+        <h1 className="mt-6 font-serif text-3xl text-green sm:text-4xl">
           Termos de Uso
         </h1>
         <p className="mt-2 text-sm text-ink-soft">
@@ -34,7 +34,7 @@ export default function TermsOfUsePage() {
             por profissional habilitado antes da publicação em produção.
           </p>
 
-          <h2 className="font-serif text-xl text-navy">
+          <h2 className="font-serif text-xl text-green">
             1. Caráter informativo
           </h2>
           <p>
@@ -45,7 +45,7 @@ export default function TermsOfUsePage() {
             do caso pelo escritório.
           </p>
 
-          <h2 className="font-serif text-xl text-navy">
+          <h2 className="font-serif text-xl text-green">
             2. Uso do formulário de contato
           </h2>
           <p>
@@ -54,7 +54,7 @@ export default function TermsOfUsePage() {
             conforme descrito na Política de Privacidade.
           </p>
 
-          <h2 className="font-serif text-xl text-navy">
+          <h2 className="font-serif text-xl text-green">
             3. Propriedade intelectual
           </h2>
           <p>
@@ -63,7 +63,7 @@ export default function TermsOfUsePage() {
             sem autorização prévia.
           </p>
 
-          <h2 className="font-serif text-xl text-navy">
+          <h2 className="font-serif text-xl text-green">
             4. Alterações
           </h2>
           <p>

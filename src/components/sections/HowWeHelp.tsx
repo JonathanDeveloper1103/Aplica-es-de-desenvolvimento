@@ -13,7 +13,7 @@ export default function HowWeHelp() {
             <SectionTitle
               eyebrow="Como podemos ajudar"
               title="Precisa de orientação jurídica?"
-              description="Conte brevemente o que está acontecendo. Nossa equipe poderá analisar as informações iniciais e orientar você sobre os próximos passos."
+              description="Conte brevemente o que está acontecendo. As informações iniciais serão analisadas para orientar você sobre os próximos passos."
             />
             <div className="mt-8">
               <WhatsAppButton message="Olá! Gostaria de falar com o escritório sobre a minha situação.">

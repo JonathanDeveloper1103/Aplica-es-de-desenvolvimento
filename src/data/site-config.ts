@@ -1,28 +1,21 @@
 import type { LucideIcon } from "lucide-react";
-import {
-  Scale,
-  Users,
-  Briefcase,
-  Home,
-  Landmark,
-  ShieldCheck,
-} from "lucide-react";
+import { Landmark, Scale, Gavel } from "lucide-react";
 
 /**
- * Configuração central do escritório.
+ * Configuração central da advogada/escritório.
  * Altere aqui as informações institucionais — nunca espalhe dados
  * de contato, redes sociais ou áreas de atuação pelo restante do código.
  *
- * Campos marcados com "[INSERIR INFORMAÇÃO]" são placeholders e devem
- * ser substituídos por dados reais e verificados do escritório antes
- * da publicação em produção.
+ * Dados extraídos do cartão de visita oficial. Campos marcados com
+ * "[INSERIR INFORMAÇÃO]" não constam no cartão e devem ser preenchidos
+ * antes da publicação, quando disponíveis.
  */
 
 // Apenas dígitos, com código do país (Brasil = 55) + DDD + número.
-export const WHATSAPP_NUMBER = "5500000000000"; // [INSERIR INFORMAÇÃO]
+export const WHATSAPP_NUMBER = "5516982313310";
 
 export const WHATSAPP_DEFAULT_MESSAGE =
-  "Olá! Acessei o site do escritório e gostaria de obter uma orientação.";
+  "Olá! Acessei o site e gostaria de obter uma orientação jurídica.";
 
 export interface PracticeArea {
   slug: string;
@@ -42,7 +35,6 @@ export interface SiteConfig {
   firmName: string;
   shortName: string;
   tagline: string;
-  founded?: string;
   oabInfo: string;
   phone: string;
   phoneDisplay: string;
@@ -61,43 +53,31 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  firmName: "[INSERIR NOME DO ESCRITÓRIO]",
-  shortName: "[INSERIR NOME]",
-  tagline: "Advocacia consultiva e contenciosa",
-  oabInfo: "OAB/UF [INSERIR NÚMERO]", // [INSERIR INFORMAÇÃO]
-  phone: "+55 (00) 0000-0000", // [INSERIR INFORMAÇÃO]
-  phoneDisplay: "(00) 0000-0000", // [INSERIR INFORMAÇÃO]
-  email: "contato@[inserir-dominio].com.br", // [INSERIR INFORMAÇÃO]
+  firmName: "Letícia Ribeiro Lino Costa",
+  shortName: "Letícia Lino Costa",
+  tagline: "Previdenciário · Cível · Criminal",
+  oabInfo: "OAB/SP 497.404",
+  phone: "+55 16 98231-3310",
+  phoneDisplay: "(16) 98231-3310",
+  email: "leticialinocosta@hotmail.com",
   address: {
     street: "[INSERIR ENDEREÇO]",
     complement: "[INSERIR COMPLEMENTO/SALA]",
     city: "[INSERIR CIDADE]",
-    state: "[UF]",
+    state: "SP",
     zip: "[INSERIR CEP]",
   },
-  businessHours: "Segunda a sexta, das 9h às 18h", // [INSERIR INFORMAÇÃO]
-  social: [
-    { label: "LinkedIn", href: "#", icon: "linkedin" }, // [INSERIR INFORMAÇÃO]
-    { label: "Instagram", href: "#", icon: "instagram" }, // [INSERIR INFORMAÇÃO]
-  ],
+  businessHours: "[INSERIR HORÁRIO DE ATENDIMENTO]",
+  social: [],
   practiceAreas: [
     {
-      slug: "direito-de-familia",
-      name: "Direito de Família",
+      slug: "direito-previdenciario",
+      name: "Direito Previdenciário",
       shortDescription:
-        "Orientação e acompanhamento jurídico em questões relacionadas às relações familiares.",
+        "Orientação em benefícios e questões junto ao INSS.",
       description:
-        "Assessoria em processos de divórcio, guarda, pensão alimentícia, inventário e demais questões que envolvem o direito das famílias, sempre com atenção e discrição.",
-      icon: Users,
-    },
-    {
-      slug: "direito-trabalhista",
-      name: "Direito Trabalhista",
-      shortDescription:
-        "Atuação e orientação em questões relacionadas às relações de trabalho.",
-      description:
-        "Acompanhamento de demandas trabalhistas para empregados e empregadores, com análise individualizada de cada situação contratual.",
-      icon: Briefcase,
+        "Análise de elegibilidade e acompanhamento de processos administrativos e judiciais relacionados a benefícios previdenciários.",
+      icon: Landmark,
     },
     {
       slug: "direito-civil",
@@ -109,31 +89,13 @@ export const siteConfig: SiteConfig = {
       icon: Scale,
     },
     {
-      slug: "direito-imobiliario",
-      name: "Direito Imobiliário",
+      slug: "direito-criminal",
+      name: "Direito Criminal",
       shortDescription:
-        "Suporte jurídico em transações e questões relacionadas a imóveis.",
+        "Acompanhamento e defesa em processos e inquéritos criminais.",
       description:
-        "Análise de contratos de compra, venda e locação, regularização de imóveis e orientação em questões condominiais.",
-      icon: Home,
-    },
-    {
-      slug: "direito-empresarial",
-      name: "Direito Empresarial",
-      shortDescription:
-        "Consultoria jurídica para empresas em suas atividades e relações comerciais.",
-      description:
-        "Apoio em constituição societária, contratos empresariais e orientação preventiva para a atividade empresarial.",
-      icon: Landmark,
-    },
-    {
-      slug: "direito-previdenciario",
-      name: "Direito Previdenciário",
-      shortDescription:
-        "Orientação em benefícios e questões junto ao INSS.",
-      description:
-        "Análise de elegibilidade e acompanhamento de processos administrativos e judiciais relacionados a benefícios previdenciários.",
-      icon: ShieldCheck,
+        "Atuação em inquéritos policiais, ações penais e demais procedimentos criminais, com atenção técnica a cada etapa.",
+      icon: Gavel,
     },
   ],
   differentiators: [
@@ -160,7 +122,7 @@ export const siteConfig: SiteConfig = {
     {
       title: "Compromisso com o cliente",
       description:
-        "Acompanhamos cada etapa do processo com transparência e dedicação.",
+        "Acompanho cada etapa do processo com transparência e dedicação.",
     },
   ],
 };

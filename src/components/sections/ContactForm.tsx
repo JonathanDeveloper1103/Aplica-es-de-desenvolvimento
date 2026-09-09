@@ -70,12 +70,12 @@ export default function ContactForm() {
     return (
       <div className="flex flex-col items-center gap-4 rounded-sm border border-border-soft bg-white p-10 text-center">
         <CheckCircle2 className="h-10 w-10 text-gold" aria-hidden="true" />
-        <h3 className="font-serif text-xl text-navy">
+        <h3 className="font-serif text-xl text-green">
           Mensagem recebida com sucesso
         </h3>
         <p className="max-w-sm text-sm leading-relaxed text-ink-soft">
-          Obrigado pelo contato. Nossa equipe irá analisar as informações e
-          retornará em breve pelos dados informados.
+          Obrigado pelo contato. As informações serão analisadas com atenção
+          e o retorno será feito em breve pelos dados informados.
         </p>
         <Button
           type="button"
@@ -120,7 +120,7 @@ export default function ContactForm() {
             autoComplete="name"
             aria-invalid={!!errors.name}
             aria-describedby={errors.name ? "name-error" : undefined}
-            className="w-full rounded-sm border border-border-soft bg-cream/40 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-navy"
+            className="w-full rounded-sm border border-border-soft bg-cream/40 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-green"
             {...register("name")}
           />
           {errors.name && (
@@ -145,7 +145,7 @@ export default function ContactForm() {
             placeholder="(00) 00000-0000"
             aria-invalid={!!errors.phone}
             aria-describedby={errors.phone ? "phone-error" : undefined}
-            className="w-full rounded-sm border border-border-soft bg-cream/40 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-navy"
+            className="w-full rounded-sm border border-border-soft bg-cream/40 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-green"
             value={phoneDisplay}
             onChange={(event) => {
               setPhoneDisplay(maskPhone(event.target.value));
@@ -174,7 +174,7 @@ export default function ContactForm() {
             autoComplete="email"
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ? "email-error" : undefined}
-            className="w-full rounded-sm border border-border-soft bg-cream/40 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-navy"
+            className="w-full rounded-sm border border-border-soft bg-cream/40 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-green"
             {...register("email")}
           />
           {errors.email && (
@@ -197,7 +197,7 @@ export default function ContactForm() {
             autoComplete="address-level2"
             aria-invalid={!!errors.city}
             aria-describedby={errors.city ? "city-error" : undefined}
-            className="w-full rounded-sm border border-border-soft bg-cream/40 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-navy"
+            className="w-full rounded-sm border border-border-soft bg-cream/40 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-green"
             {...register("city")}
           />
           {errors.city && (
@@ -221,7 +221,7 @@ export default function ContactForm() {
             aria-describedby={
               errors.practiceArea ? "practiceArea-error" : undefined
             }
-            className="w-full rounded-sm border border-border-soft bg-cream/40 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-navy"
+            className="w-full rounded-sm border border-border-soft bg-cream/40 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-green"
             {...register("practiceArea")}
           >
             <option value="" disabled>
@@ -257,7 +257,7 @@ export default function ContactForm() {
             rows={4}
             aria-invalid={!!errors.message}
             aria-describedby={errors.message ? "message-error" : undefined}
-            className="w-full resize-none rounded-sm border border-border-soft bg-cream/40 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-navy"
+            className="w-full resize-none rounded-sm border border-border-soft bg-cream/40 px-4 py-3 text-sm text-ink outline-none transition-colors focus:border-green"
             {...register("message")}
           />
           {errors.message && (
@@ -271,14 +271,14 @@ export default function ContactForm() {
           <label className="flex items-start gap-3 text-xs leading-relaxed text-ink-soft">
             <input
               type="checkbox"
-              className="mt-0.5 h-4 w-4 shrink-0 rounded-sm border-border-soft text-navy focus-visible:outline-2 focus-visible:outline-offset-2"
+              className="mt-0.5 h-4 w-4 shrink-0 rounded-sm border-border-soft text-green focus-visible:outline-2 focus-visible:outline-offset-2"
               aria-invalid={!!errors.consent}
               aria-describedby={errors.consent ? "consent-error" : undefined}
               {...register("consent")}
             />
             Autorizo o escritório a entrar em contato comigo através dos
             dados fornecidos, conforme a{" "}
-            <a href="/politica-de-privacidade" className="underline underline-offset-2 hover:text-navy">
+            <a href="/politica-de-privacidade" className="underline underline-offset-2 hover:text-green">
               Política de Privacidade
             </a>
             .
@@ -319,7 +319,7 @@ export default function ContactForm() {
         atendimento inicial, conforme nossa{" "}
         <a
           href="/politica-de-privacidade"
-          className="underline underline-offset-2 hover:text-navy"
+          className="underline underline-offset-2 hover:text-green"
         >
           Política de Privacidade
         </a>

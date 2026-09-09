@@ -8,14 +8,14 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative flex min-h-[92vh] items-center overflow-hidden bg-navy pt-28 pb-20"
+      className="relative flex min-h-[92vh] items-center overflow-hidden bg-green pt-28 pb-20"
     >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.06]"
         style={{
           backgroundImage:
-            "linear-gradient(to right, #faf8f4 1px, transparent 1px), linear-gradient(to bottom, #faf8f4 1px, transparent 1px)",
+            "linear-gradient(to right, var(--color-cream) 1px, transparent 1px), linear-gradient(to bottom, var(--color-cream) 1px, transparent 1px)",
           backgroundSize: "64px 64px",
         }}
       />

@@ -24,8 +24,8 @@ export default function WhatsAppButton({
       className={cn(
         "inline-flex items-center justify-center gap-2 rounded-sm text-sm font-medium tracking-wide transition-colors duration-200",
         variant === "solid" &&
-          "bg-navy px-6 py-3.5 text-cream hover:bg-navy-light",
-        variant === "text" && "text-navy underline-offset-4 hover:underline",
+          "bg-green px-6 py-3.5 text-cream hover:bg-green-light",
+        variant === "text" && "text-green underline-offset-4 hover:underline",
         className,
       )}
     >

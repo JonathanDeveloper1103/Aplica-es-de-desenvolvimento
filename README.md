@@ -1,6 +1,6 @@
-# Landing Page — Escritório de Advocacia
+# Landing Page — Letícia Ribeiro Lino Costa (Advocacia)
 
-Landing page institucional e de captação de leads para um escritório de advocacia, construída com Next.js (App Router), TypeScript e Tailwind CSS.
+Landing page institucional e de captação de leads para a advogada Letícia Ribeiro Lino Costa (OAB/SP 497.404), construída com Next.js (App Router), TypeScript e Tailwind CSS. Identidade visual (verde escuro + dourado) e dados de contato extraídos do cartão de visita oficial.
 
 ## Stack
 
@@ -42,7 +42,7 @@ src/
   components/
     layout/                      # Header, Footer
     sections/                    # Hero, About, PracticeAreas, Differentiators, HowWeHelp, Contact, ContactForm
-    shared/                      # WhatsAppButton, WhatsAppFloatingButton, PracticeAreaCard, SocialIcon
+    shared/                      # Logo, WhatsAppButton, WhatsAppFloatingButton, PracticeAreaCard, SocialIcon
     ui/                          # Button, Container, SectionTitle, Reveal (animação de entrada)
   data/
     site-config.ts               # ⚠️ configuração central do escritório
@@ -52,33 +52,32 @@ src/
     phone-mask.ts / whatsapp.ts / utils.ts
 ```
 
-## Configuração obrigatória antes de publicar
+## Configuração
 
-Toda a informação institucional fica centralizada em **`src/data/site-config.ts`**. Os campos marcados com `[INSERIR ...]` são placeholders e precisam ser substituídos por dados reais e revisados pelo escritório antes de qualquer publicação:
+Toda a informação institucional fica centralizada em **`src/data/site-config.ts`**.
 
-- Nome do escritório, número da OAB, tagline;
-- Telefone, e-mail, endereço, horário de atendimento;
-- Redes sociais (`social`);
-- Áreas de atuação reais (`practiceAreas`) — atualmente contém exemplos.
+### Já preenchido com dados reais do cartão de visita
 
-### WhatsApp
+- Nome (`firmName`/`shortName`), OAB/SP 497.404 (`oabInfo`);
+- Tagline "Previdenciário · Cível · Criminal";
+- Telefone/WhatsApp `(16) 98231-3310` e e-mail `leticialinocosta@hotmail.com`;
+- `WHATSAPP_NUMBER = "5516982313310"` — usado por todos os botões de WhatsApp do site (header, hero, cards de áreas, seção de contato e botão flutuante) via `src/lib/whatsapp.ts`;
+- As 3 áreas de atuação do cartão (`practiceAreas`): Direito Previdenciário, Direito Civil, Direito Criminal.
 
-O número fica isolado em uma única constante:
+### Ainda precisa ser preenchido (não constava no cartão)
 
-```ts
-// src/data/site-config.ts
-export const WHATSAPP_NUMBER = "5500000000000"; // formato: 55 + DDD + número
-```
+Campos marcados com `[INSERIR ...]` em `site-config.ts`:
 
-Basta trocar esse valor — todos os botões de WhatsApp do site (header, hero, cards de áreas, seção de contato e botão flutuante) usam essa mesma configuração via `src/lib/whatsapp.ts`.
+- Endereço completo e horário de atendimento;
+- Redes sociais (`social` está vazio — nenhum perfil foi informado).
 
 ### Textos institucionais
 
-Os textos da seção "Sobre o escritório" (`src/components/sections/About.tsx`) e das páginas de Política de Privacidade e Termos de Uso são **placeholders** e devem ser revisados por profissional habilitado antes da publicação — em especial o conteúdo jurídico da Política de Privacidade (LGPD) e dos Termos de Uso.
+Os textos da seção "Sobre a advogada" (`src/components/sections/About.tsx`) e das páginas de Política de Privacidade e Termos de Uso são **placeholders** (marcados no texto) e devem ser revisados e aprovados pela advogada antes da publicação — em especial o conteúdo jurídico da Política de Privacidade (LGPD) e dos Termos de Uso.
 
 ### Foto institucional / logo
 
-Não há foto ou logo real do escritório neste repositório. O espaço para a foto institucional está marcado visualmente na seção "Sobre" com um placeholder tracejado. O favicon atual (`src/app/icon.tsx`) é um monograma provisório.
+Não há foto ou arquivo de logo em alta resolução neste repositório — apenas as cores e o ícone de balança extraídos do cartão de visita (ver `src/components/shared/Logo.tsx` e `src/app/icon.tsx`). O espaço para a foto institucional está marcado visualmente na seção "Sobre" com um placeholder tracejado.
 
 ## Formulário de leads
 
