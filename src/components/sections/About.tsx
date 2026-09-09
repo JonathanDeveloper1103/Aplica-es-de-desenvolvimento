@@ -1,4 +1,4 @@
-import { Scale } from "lucide-react";
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Reveal from "@/components/ui/Reveal";
@@ -15,36 +15,32 @@ export default function About() {
           />
           <div className="mt-6 space-y-5 text-base leading-relaxed text-ink-soft">
             <p>
-              {/* PLACEHOLDER — substituir por texto institucional real revisado pela advogada */}
               A advogada {siteConfig.firmName} atua com foco em oferecer
               atendimento jurídico próximo e personalizado, buscando
               compreender a fundo cada situação antes de indicar um caminho a
-              seguir. PLACEHOLDER.
+              seguir.
             </p>
             <p>
-              {/* PLACEHOLDER — substituir por texto institucional real revisado pela advogada */}
               O trabalho é conduzido com responsabilidade, ética e atenção aos
               detalhes, sempre em conformidade com as normas que regulamentam
               a advocacia. A busca é por soluções jurídicas adequadas à
               realidade de cada cliente, com comunicação clara em todas as
-              etapas do processo. PLACEHOLDER.
+              etapas do processo.
             </p>
             <p className="text-sm text-ink-soft/70">{siteConfig.oabInfo}</p>
           </div>
         </Reveal>
 
         <Reveal delay={120}>
-          <div className="relative flex aspect-[4/5] w-full items-center justify-center rounded-sm border border-dashed border-green/20 bg-green/[0.03] p-10 text-center">
-            <div className="flex flex-col items-center gap-4 text-green/40">
-              <Scale className="h-12 w-12" strokeWidth={1} aria-hidden="true" />
-              <p className="max-w-[220px] text-sm leading-relaxed">
-                Espaço reservado para foto institucional da advogada
-                <br />
-                <span className="text-xs uppercase tracking-wide">
-                  [INSERIR IMAGEM]
-                </span>
-              </p>
-            </div>
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm border border-border-soft bg-green/5">
+            <Image
+              src="/images/leticia-institucional.jpg"
+              alt={`Retrato institucional da advogada ${siteConfig.firmName}`}
+              fill
+              sizes="(min-width: 1024px) 480px, 100vw"
+              className="object-cover"
+              priority={false}
+            />
           </div>
         </Reveal>
       </Container>

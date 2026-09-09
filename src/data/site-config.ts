@@ -12,7 +12,7 @@ import { Landmark, Scale, Gavel } from "lucide-react";
  */
 
 // Apenas dígitos, com código do país (Brasil = 55) + DDD + número.
-export const WHATSAPP_NUMBER = "5516982313310";
+export const WHATSAPP_NUMBER = "5516991717064";
 
 export const WHATSAPP_DEFAULT_MESSAGE =
   "Olá! Acessei o site e gostaria de obter uma orientação jurídica.";
@@ -57,17 +57,17 @@ export const siteConfig: SiteConfig = {
   shortName: "Letícia Lino Costa",
   tagline: "Previdenciário · Cível · Criminal",
   oabInfo: "OAB/SP 497.404",
-  phone: "+55 16 98231-3310",
-  phoneDisplay: "(16) 98231-3310",
+  phone: "+55 16 99171-7064",
+  phoneDisplay: "(16) 99171-7064",
   email: "leticialinocosta@hotmail.com",
   address: {
-    street: "[INSERIR ENDEREÇO]",
-    complement: "[INSERIR COMPLEMENTO/SALA]",
-    city: "[INSERIR CIDADE]",
+    street: "Rua Jacinto Felizardo Barbosa, 750",
+    complement: "Centro",
+    city: "Miguelópolis",
     state: "SP",
     zip: "[INSERIR CEP]",
   },
-  businessHours: "[INSERIR HORÁRIO DE ATENDIMENTO]",
+  businessHours: "Segunda a sexta, das 9h às 17h",
   social: [],
   practiceAreas: [
     {

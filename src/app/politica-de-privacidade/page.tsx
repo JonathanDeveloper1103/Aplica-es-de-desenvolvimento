@@ -21,7 +21,7 @@ export default function PrivacyPolicyPage() {
           Política de Privacidade
         </h1>
         <p className="mt-2 text-sm text-ink-soft">
-          Última atualização: [INSERIR DATA]
+          Última atualização: 09 de setembro de 2026
         </p>
 
         <div className="prose-content mt-10 space-y-6 text-sm leading-relaxed text-ink-soft">
