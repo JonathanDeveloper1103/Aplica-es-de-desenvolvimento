@@ -9,6 +9,7 @@ Landing page institucional e de captação de leads para a advogada Letícia Rib
 - **Tailwind CSS v4**
 - **React Hook Form + Zod** — validação de formulário (client e server)
 - **lucide-react** — ícones
+- **Resend** — envio do e-mail de notificação de novos leads
 
 ## Como executar
 
@@ -48,7 +49,7 @@ src/
     site-config.ts               # ⚠️ configuração central do escritório
   lib/
     validation.ts                # schema Zod compartilhado (client + server)
-    lead-service.ts              # camada de serviço para persistência futura dos leads
+    lead-service.ts              # envia o e-mail de notificação do lead (Resend) + log
     phone-mask.ts / whatsapp.ts / utils.ts
 ```
 
@@ -56,39 +57,46 @@ src/
 
 Toda a informação institucional fica centralizada em **`src/data/site-config.ts`**.
 
-### Já preenchido com dados reais do cartão de visita
+### Já preenchido
 
 - Nome (`firmName`/`shortName`), OAB/SP 497.404 (`oabInfo`);
 - Tagline "Previdenciário · Cível · Criminal";
-- Telefone/WhatsApp `(16) 98231-3310` e e-mail `leticialinocosta@hotmail.com`;
-- `WHATSAPP_NUMBER = "5516982313310"` — usado por todos os botões de WhatsApp do site (header, hero, cards de áreas, seção de contato e botão flutuante) via `src/lib/whatsapp.ts`;
-- As 3 áreas de atuação do cartão (`practiceAreas`): Direito Previdenciário, Direito Civil, Direito Criminal.
+- Telefone/WhatsApp `(16) 99171-7064` e e-mail `leticialinocosta@hotmail.com`;
+- `WHATSAPP_NUMBER = "5516991717064"` — usado por todos os botões de WhatsApp do site (header, hero, cards de áreas, seção de contato e botão flutuante) via `src/lib/whatsapp.ts`;
+- Endereço (Rua Jacinto Felizardo Barbosa, 750, Centro — Miguelópolis/SP) e horário de atendimento (segunda a sexta, 9h às 17h);
+- As 3 áreas de atuação do cartão (`practiceAreas`): Direito Previdenciário, Direito Civil, Direito Criminal;
+- Foto institucional em `public/images/leticia-institucional.jpg`, usada na seção "Sobre a advogada".
 
-### Ainda precisa ser preenchido (não constava no cartão)
+### Ainda precisa ser preenchido
 
-Campos marcados com `[INSERIR ...]` em `site-config.ts`:
-
-- Endereço completo e horário de atendimento;
+- CEP (`address.zip` em `site-config.ts`, marcado como `[INSERIR CEP]`);
 - Redes sociais (`social` está vazio — nenhum perfil foi informado).
 
 ### Textos institucionais
 
-Os textos da seção "Sobre a advogada" (`src/components/sections/About.tsx`) e das páginas de Política de Privacidade e Termos de Uso são **placeholders** (marcados no texto) e devem ser revisados e aprovados pela advogada antes da publicação — em especial o conteúdo jurídico da Política de Privacidade (LGPD) e dos Termos de Uso.
-
-### Foto institucional / logo
-
-Não há foto ou arquivo de logo em alta resolução neste repositório — apenas as cores e o ícone de balança extraídos do cartão de visita (ver `src/components/shared/Logo.tsx` e `src/app/icon.tsx`). O espaço para a foto institucional está marcado visualmente na seção "Sobre" com um placeholder tracejado.
+Os textos da seção "Sobre a advogada" (`src/components/sections/About.tsx`) e das páginas de Política de Privacidade e Termos de Uso devem ser revisados e aprovados pela advogada antes da publicação — em especial o conteúdo jurídico da Política de Privacidade (LGPD) e dos Termos de Uso, que seguem marcados como texto provisório.
 
 ## Formulário de leads
 
-O formulário (`ContactForm.tsx`) envia os dados para `POST /api/leads` (`src/app/api/leads/route.ts`), que hoje:
+O formulário (`ContactForm.tsx`) envia os dados para `POST /api/leads` (`src/app/api/leads/route.ts`), que:
 
 1. Valida os dados no servidor (schema compartilhado em `src/lib/validation.ts`);
 2. Aplica um rate limit básico em memória por IP;
 3. Descarta silenciosamente envios de bots (campo honeypot `website`);
-4. Repassa o lead para `src/lib/lead-service.ts`.
+4. Repassa o lead para `src/lib/lead-service.ts`, que registra o lead no log do servidor e envia um e-mail de notificação via Resend para `siteConfig.email`.
 
-**Nenhum dado é persistido ainda** — `receiveLead()` em `lead-service.ts` apenas registra o lead em log. Para conectar a um banco de dados, CRM, disparo de e-mail ou WhatsApp Business API, implemente a integração dentro dessa função (usando variáveis de ambiente para credenciais); nem o formulário, nem a rota, nem a validação precisam mudar.
+**Não existe banco de dados** — o lead não fica salvo em lugar nenhum além do e-mail recebido e do log do servidor (visível na aba "Logs" do projeto na Vercel). Para conectar um banco de dados, CRM ou a API do WhatsApp Business, implemente a integração dentro de `receiveLead()`; nem o formulário, nem a rota, nem a validação precisam mudar.
+
+### Configurar o envio de e-mail (Resend)
+
+1. Crie uma conta gratuita em [resend.com](https://resend.com) **usando o e-mail `leticialinocosta@hotmail.com`** — sem domínio próprio verificado, o Resend só entrega e-mails de teste para o endereço com o qual a conta foi criada, e é exatamente esse o destinatário das notificações.
+2. No painel, vá em **API Keys → Create API Key** e copie a chave gerada (começa com `re_`).
+3. Adicione a variável de ambiente:
+   - **Localmente**: copie `.env.example` para `.env.local` e cole a chave em `RESEND_API_KEY`.
+   - **Na Vercel**: **Project Settings → Environment Variables** → adicione `RESEND_API_KEY` com o mesmo valor, e faça um redeploy.
+4. Pronto — a partir daí, todo envio do formulário chega por e-mail na caixa de entrada da advogada, com **Responder** já configurado para o e-mail de quem preencheu o formulário.
+
+Sem essa chave configurada, o site continua funcionando normalmente (o formulário envia e recebe a mensagem de sucesso), só que nenhum e-mail é disparado — o lead fica registrado apenas no log do servidor.
 
 ## SEO
 
