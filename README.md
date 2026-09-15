@@ -105,6 +105,13 @@ Sem essa chave configurada, o site continua funcionando normalmente (o formulár
 - Dados estruturados `LegalService` (JSON-LD) em `src/app/page.tsx`;
 - Defina `NEXT_PUBLIC_SITE_URL` no ambiente de produção para que a metadata, o sitemap e o robots apontem para o domínio correto.
 
+## Deploy
+
+Hospedado na [Vercel](https://vercel.com) (plano gratuito), com deploy automático a cada push no branch `claude/law-firm-landing-page-pxt3rf`:
+
+- URL de produção: `https://landingpageleticia.vercel.app`
+- Variáveis de ambiente configuradas no projeto: `RESEND_API_KEY` e `NEXT_PUBLIC_SITE_URL`
+
 ## Acessibilidade e performance
 
 - HTML semântico (`header`, `main`, `section`, `footer`), labels em todos os campos do formulário, `aria-label` em botões de ícone, foco visível customizado;
