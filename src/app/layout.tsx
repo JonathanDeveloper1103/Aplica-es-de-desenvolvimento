@@ -16,7 +16,7 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.exemplo-escritorio.com.br";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://landingpageleticia.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
