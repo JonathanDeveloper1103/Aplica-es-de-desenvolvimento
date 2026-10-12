@@ -2,7 +2,6 @@ import { MonitorSmartphone } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionTitle from "@/components/ui/SectionTitle";
 import Reveal from "@/components/ui/Reveal";
-import WhatsAppButton from "@/components/shared/WhatsAppButton";
 import { siteConfig } from "@/data/site-config";
 
 export default function OnlineCare() {
@@ -17,12 +16,7 @@ export default function OnlineCare() {
               <MonitorSmartphone className="h-4 w-4" aria-hidden="true" />
               Atendimento online
             </span>
-            <SectionTitle
-              title={onlineCare.title}
-              description={onlineCare.intro}
-              align="center"
-              className="mx-auto"
-            />
+            <SectionTitle title={onlineCare.title} align="center" className="mx-auto" />
           </div>
         </Reveal>
 
@@ -48,15 +42,6 @@ export default function OnlineCare() {
             );
           })}
         </div>
-
-        <Reveal delay={120}>
-          <div className="mx-auto mt-14 flex max-w-2xl flex-col items-center gap-5 text-center">
-            <p className="text-sm text-muted">{onlineCare.note}</p>
-            <WhatsAppButton message="Olá, Vinícius! Gostaria de saber como funciona o atendimento psicológico online.">
-              Agendar atendimento online
-            </WhatsAppButton>
-          </div>
-        </Reveal>
       </Container>
     </section>
   );

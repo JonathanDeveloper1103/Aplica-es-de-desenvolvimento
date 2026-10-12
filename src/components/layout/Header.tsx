@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { label: "Início", href: "#inicio" },
   { label: "Sobre mim", href: "#sobre" },
   { label: "Minha abordagem", href: "#abordagem" },
+  { label: "Atendimento online", href: "#atendimento-online" },
   { label: "Contato", href: "#contato" },
 ];
 
