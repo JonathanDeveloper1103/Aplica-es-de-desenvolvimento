@@ -1,5 +1,4 @@
 import Container from "@/components/ui/Container";
-import SectionTitle from "@/components/ui/SectionTitle";
 import Reveal from "@/components/ui/Reveal";
 import { siteConfig } from "@/data/site-config";
 

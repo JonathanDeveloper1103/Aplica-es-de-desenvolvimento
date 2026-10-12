@@ -1,5 +1,18 @@
 import type { LucideIcon } from "lucide-react";
-import { Ear, Compass, HeartHandshake, Sprout, CloudRain, CloudSun } from "lucide-react";
+import {
+  Ear,
+  Compass,
+  HeartHandshake,
+  Sprout,
+  CloudRain,
+  CloudSun,
+  Video,
+  Clock,
+  Globe,
+  ShieldCheck,
+  House,
+  CalendarCheck,
+} from "lucide-react";
 
 /**
  * Configuração central do profissional.
@@ -19,6 +32,12 @@ export interface ApproachBlock {
 
 export interface CareTopic {
   slug: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}
+
+export interface OnlineBenefit {
   title: string;
   description: string;
   icon: LucideIcon;
@@ -44,6 +63,12 @@ export interface SiteConfig {
     blocks: ApproachBlock[];
   };
   careTopics: CareTopic[];
+  onlineCare: {
+    title: string;
+    intro: string;
+    note: string;
+    benefits: OnlineBenefit[];
+  };
 }
 
 export const siteConfig: SiteConfig = {
@@ -69,7 +94,7 @@ export const siteConfig: SiteConfig = {
   },
 
   bioParagraphs: [
-    "Sou graduado em Psicologia pela Universidade de Franca (UNIFRAN), desde 2022, e possuo pós-graduação em Análise Existencial e Logoterapia Frankliana, que compreende a busca por sentido como uma dimensão fundamental da existência humana.",
+    "Sou graduado em Psicologia pela Universidade de Franca (UNIFRAN), desde 2022, e possuo pós-graduação em Análise Existencial e Logoterapia Frankliana pelo UNIÍTALO (Centro Universitário Católico Ítalo Brasileiro), abordagem que compreende a busca por sentido como uma dimensão fundamental da existência humana.",
     "Atuo na área da saúde desde 2022, com experiência no cuidado em saúde mental e no acompanhamento psicológico de pessoas que vivenciam sofrimento emocional e dificuldades relacionadas à saúde mental.",
     "Tenho experiência no acompanhamento de demandas relacionadas à ansiedade, depressão, vazio existencial e uso de álcool e outras drogas, buscando compreender cada indivíduo em sua singularidade, considerando sua história de vida, suas experiências e os fatores que influenciam seu sofrimento.",
     "Minha atuação é fundamentada em uma perspectiva humanizada, com contribuições da Análise Existencial e da Logoterapia, que valorizam a liberdade e a responsabilidade pessoal, a capacidade de encontrar sentido mesmo diante de situações difíceis e a identificação de valores que orientam a vida.",
@@ -132,4 +157,49 @@ export const siteConfig: SiteConfig = {
       icon: Sprout,
     },
   ],
+
+  onlineCare: {
+    title: "Atendimento psicológico online",
+    intro:
+      "O acompanhamento também é realizado de forma online, por videochamada, com o mesmo cuidado, a mesma escuta e o mesmo sigilo profissional do atendimento presencial. Você escolhe um ambiente reservado e confortável, e nos encontramos a partir de onde você estiver.",
+    note: "Para a sessão online, basta ter conexão com a internet e um local tranquilo e privado.",
+    benefits: [
+      {
+        title: "Comodidade e conforto",
+        description:
+          "Faça as sessões de um lugar em que você se sinta seguro e à vontade, sem tempo e custos de deslocamento.",
+        icon: House,
+      },
+      {
+        title: "Flexibilidade de horários",
+        description:
+          "Mais facilidade para encaixar o acompanhamento na sua rotina de trabalho e estudos.",
+        icon: Clock,
+      },
+      {
+        title: "Acesso de qualquer lugar",
+        description:
+          "Possibilidade de iniciar ou continuar o acompanhamento mesmo morando em outra cidade ou durante viagens.",
+        icon: Globe,
+      },
+      {
+        title: "Privacidade e sigilo",
+        description:
+          "As sessões por videochamada preservam a confidencialidade e o sigilo profissional, como no presencial.",
+        icon: ShieldCheck,
+      },
+      {
+        title: "Continuidade do cuidado",
+        description:
+          "Menos interrupções e faltas, ajudando a manter a regularidade e o vínculo ao longo do processo.",
+        icon: CalendarCheck,
+      },
+      {
+        title: "A mesma escuta de sempre",
+        description:
+          "A atenção, o acolhimento e a seriedade do trabalho permanecem os mesmos do atendimento presencial.",
+        icon: Video,
+      },
+    ],
+  },
 };

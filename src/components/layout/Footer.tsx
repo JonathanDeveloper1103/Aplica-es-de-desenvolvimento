@@ -10,6 +10,7 @@ const FOOTER_LINKS = [
   { label: "Sobre mim", href: "#sobre" },
   { label: "Minha abordagem", href: "#abordagem" },
   { label: "Temas do acompanhamento", href: "#temas" },
+  { label: "Atendimento online", href: "#atendimento-online" },
   { label: "Contato", href: "#contato" },
 ];
 

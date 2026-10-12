@@ -4,6 +4,7 @@ import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Approach from "@/components/sections/Approach";
 import CareTopics from "@/components/sections/CareTopics";
+import OnlineCare from "@/components/sections/OnlineCare";
 import Contact from "@/components/sections/Contact";
 import { siteConfig } from "@/data/site-config";
 import { whatsappUrl } from "@/config/contact";
@@ -42,6 +43,7 @@ export default function Home() {
         <About />
         <Approach />
         <CareTopics />
+        <OnlineCare />
         <Contact />
       </main>
       <Footer />
