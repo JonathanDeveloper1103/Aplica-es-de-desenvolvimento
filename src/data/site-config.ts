@@ -36,7 +36,6 @@ export interface SiteConfig {
   photos: {
     hero: string;
     portrait: string;
-    approach: string;
   };
   bioParagraphs: string[];
   approach: {
@@ -65,10 +64,8 @@ export const siteConfig: SiteConfig = {
     // Foto de capa (primeira dobra): o profissional com a camisa
     // verde-oliva. Substitua o arquivo mantendo o mesmo nome.
     hero: "/images/vinicius-hero.jpg",
-    // Retrato usado na seção de trajetória (poltrona branca, sorrindo).
+    // Retrato usado na seção de trajetória (com o livro, trajetória profissional).
     portrait: "/images/vinicius-retrato.jpg",
-    // Retrato contemplativo (com o livro) usado na seção "Minha abordagem".
-    approach: "/images/vinicius-abordagem.jpg",
   },
 
   bioParagraphs: [
