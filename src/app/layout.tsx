@@ -1,56 +1,63 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { DM_Sans, DM_Serif_Display } from "next/font/google";
 import { siteConfig } from "@/data/site-config";
 import WhatsAppFloatingButton from "@/components/shared/WhatsAppFloatingButton";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
   display: "swap",
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const dmSerif = DM_Serif_Display({
+  variable: "--font-dm-serif",
   subsets: ["latin"],
+  weight: "400",
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://landingpageleticia.vercel.app";
+const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+const siteUrl =
+  rawSiteUrl && rawSiteUrl.length > 0
+    ? rawSiteUrl
+    : "https://vinicius-tomaz-psicologo.vercel.app";
+
+const description =
+  "Psicólogo (CRP 06/180116). Acompanhamento psicológico humanizado, com contribuições da Análise Existencial e da Logoterapia. Agende uma conversa pelo WhatsApp.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteConfig.firmName} | Advocacia`,
-    template: `%s | ${siteConfig.firmName}`,
+    default: `${siteConfig.fullName} | Psicólogo`,
+    template: `%s | ${siteConfig.fullName}`,
   },
-  description:
-    "Atendimento jurídico com estratégia, segurança e compromisso. Conte com orientação jurídica personalizada para compreender seus direitos.",
+  description,
   keywords: [
-    "advocacia",
-    "escritório de advocacia",
-    "advogado",
-    "assessoria jurídica",
-    "orientação jurídica",
-    "direito de família",
-    "direito trabalhista",
-    "direito civil",
+    "psicólogo",
+    "psicologia",
+    "acompanhamento psicológico",
+    "saúde mental",
+    "análise existencial",
+    "logoterapia",
+    "ansiedade",
+    "depressão",
+    "sentido",
+    "Vinícius Tomaz Lacerda Silva",
   ],
-  authors: [{ name: siteConfig.firmName }],
+  authors: [{ name: siteConfig.fullName }],
   openGraph: {
     type: "website",
     locale: "pt_BR",
     url: siteUrl,
-    siteName: siteConfig.firmName,
-    title: `${siteConfig.firmName} | Advocacia`,
-    description:
-      "Atendimento jurídico com estratégia, segurança e compromisso. Conte com orientação jurídica personalizada para compreender seus direitos.",
+    siteName: siteConfig.fullName,
+    title: `${siteConfig.fullName} | Psicólogo`,
+    description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.firmName} | Advocacia`,
-    description:
-      "Atendimento jurídico com estratégia, segurança e compromisso.",
+    title: `${siteConfig.fullName} | Psicólogo`,
+    description,
   },
   robots: {
     index: true,
@@ -59,7 +66,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport = {
-  themeColor: "#123a2c",
+  themeColor: "#414b35",
   width: "device-width",
   initialScale: 1,
 };
@@ -68,9 +75,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="pt-BR"
-      className={`${inter.variable} ${playfair.variable} h-full antialiased`}
+      className={`${dmSans.variable} ${dmSerif.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-cream text-ink">
+      <body className="min-h-full flex flex-col bg-offwhite text-ink">
         {children}
         <WhatsAppFloatingButton />
       </body>

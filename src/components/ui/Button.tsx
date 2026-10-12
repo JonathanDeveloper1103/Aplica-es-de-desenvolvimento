@@ -2,16 +2,15 @@ import type { ButtonHTMLAttributes, AnchorHTMLAttributes, ReactNode } from "reac
 import { cn } from "@/lib/utils";
 
 const baseStyles =
-  "inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3.5 text-sm font-medium tracking-wide transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-60";
+  "inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium tracking-wide transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 disabled:cursor-not-allowed disabled:opacity-60";
 
 const variants = {
-  primary: "bg-green text-cream hover:bg-green-light",
-  gold: "bg-gold text-green-dark hover:bg-gold-light",
-  outline:
-    "border border-green/30 text-green hover:border-green hover:bg-green/5",
+  primary: "bg-olive text-white hover:bg-olive-deep",
+  deep: "bg-olive-deep text-white hover:bg-olive",
+  outline: "border border-olive/30 text-olive hover:border-olive hover:bg-olive/5",
   "outline-light":
-    "border border-cream/40 text-cream hover:border-cream hover:bg-cream/10",
-  ghost: "text-green hover:bg-green/5",
+    "border border-white/40 text-white hover:border-white hover:bg-white/10",
+  ghost: "text-olive hover:bg-olive/5",
 } as const;
 
 type Variant = keyof typeof variants;

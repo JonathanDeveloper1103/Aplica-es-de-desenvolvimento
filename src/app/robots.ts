@@ -1,6 +1,10 @@
 import type { MetadataRoute } from "next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://landingpageleticia.vercel.app";
+const rawSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+const siteUrl =
+  rawSiteUrl && rawSiteUrl.length > 0
+    ? rawSiteUrl
+    : "https://vinicius-tomaz-psicologo.vercel.app";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -8,7 +12,6 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/"],
       },
     ],
     sitemap: `${siteUrl}/sitemap.xml`,
