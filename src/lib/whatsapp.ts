@@ -1,6 +1,12 @@
-import { WHATSAPP_DEFAULT_MESSAGE, WHATSAPP_NUMBER } from "@/data/site-config";
+import { buildWhatsappUrl, WHATSAPP_DEFAULT_MESSAGE } from "@/config/contact";
 
-export function getWhatsAppLink(message: string = WHATSAPP_DEFAULT_MESSAGE): string {
-  const encoded = encodeURIComponent(message);
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+/**
+ * Compatibilidade / conveniência: retorna o link do WhatsApp com a
+ * mensagem informada. A configuração real (número e mensagem) vive em
+ * `src/config/contact.ts`.
+ */
+export function getWhatsAppLink(
+  message: string = WHATSAPP_DEFAULT_MESSAGE,
+): string {
+  return buildWhatsappUrl(message);
 }

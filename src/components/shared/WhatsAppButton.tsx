@@ -6,14 +6,14 @@ interface WhatsAppButtonProps {
   message?: string;
   className?: string;
   children?: React.ReactNode;
-  variant?: "solid" | "text";
+  variant?: "solid" | "whatsapp" | "text";
 }
 
 export default function WhatsAppButton({
   message,
   className,
   children = "Falar no WhatsApp",
-  variant = "solid",
+  variant = "whatsapp",
 }: WhatsAppButtonProps) {
   return (
     <a
@@ -22,10 +22,12 @@ export default function WhatsAppButton({
       rel="noopener noreferrer"
       aria-label="Iniciar conversa no WhatsApp"
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-sm text-sm font-medium tracking-wide transition-colors duration-200",
+        "inline-flex items-center justify-center gap-2 rounded-full text-sm font-medium tracking-wide transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2",
+        variant === "whatsapp" &&
+          "bg-[#25D366] px-7 py-3.5 text-white hover:bg-[#1ebe5a]",
         variant === "solid" &&
-          "bg-green px-6 py-3.5 text-cream hover:bg-green-light",
-        variant === "text" && "text-green underline-offset-4 hover:underline",
+          "bg-olive px-7 py-3.5 text-white hover:bg-olive-deep",
+        variant === "text" && "text-olive underline-offset-4 hover:underline",
         className,
       )}
     >
