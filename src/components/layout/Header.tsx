@@ -3,14 +3,14 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import Container from "@/components/ui/Container";
-import { siteConfig } from "@/data/site-config";
-import { whatsappUrl } from "@/config/contact";
+import Logo from "@/components/shared/Logo";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
   { label: "Início", href: "#inicio" },
-  { label: "Sobre mim", href: "#sobre" },
-  { label: "Minha abordagem", href: "#abordagem" },
+  { label: "O Escritório", href: "#escritorio" },
+  { label: "Áreas de Atuação", href: "#areas-de-atuacao" },
+  { label: "Como Podemos Ajudar", href: "#como-ajudamos" },
   { label: "Contato", href: "#contato" },
 ];
 
@@ -32,37 +32,18 @@ export default function Header() {
     };
   }, [menuOpen]);
 
-  const solid = scrolled || menuOpen;
-
   return (
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-40 transition-colors duration-300",
-        solid ? "bg-offwhite/95 shadow-sm backdrop-blur-sm" : "bg-transparent",
+        scrolled || menuOpen
+          ? "bg-cream/95 shadow-sm backdrop-blur-sm"
+          : "bg-transparent",
       )}
     >
       <Container className="flex h-20 max-w-7xl items-center justify-between gap-4">
-        <a
-          href="#inicio"
-          className="flex min-w-0 shrink flex-col leading-tight"
-          aria-label={`${siteConfig.fullName}, ${siteConfig.role}`}
-        >
-          <span
-            className={cn(
-              "truncate font-serif text-base leading-tight tracking-wide sm:text-lg",
-              solid ? "text-olive-deep" : "text-white",
-            )}
-          >
-            {siteConfig.fullName}
-          </span>
-          <span
-            className={cn(
-              "truncate text-[11px] uppercase tracking-[0.14em]",
-              solid ? "text-muted" : "text-white/70",
-            )}
-          >
-            {siteConfig.role} | {siteConfig.crp}
-          </span>
+        <a href="#inicio" className="flex min-w-0 shrink items-center gap-3">
+          <Logo tone={scrolled || menuOpen ? "onLight" : "onDark"} />
         </a>
 
         <nav
@@ -75,24 +56,24 @@ export default function Header() {
               href={link.href}
               className={cn(
                 "whitespace-nowrap text-xs font-medium uppercase tracking-[0.1em] transition-colors duration-300 xl:tracking-[0.14em]",
-                solid ? "text-muted hover:text-olive" : "text-white/85 hover:text-white",
+                scrolled
+                  ? "text-ink-soft hover:text-green"
+                  : "text-cream/85 hover:text-cream",
               )}
             >
               {link.label}
             </a>
           ))}
           <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contato"
             className={cn(
-              "whitespace-nowrap rounded-full border px-5 py-2.5 text-xs font-medium uppercase tracking-[0.12em] transition-colors duration-300",
-              solid
-                ? "border-olive bg-olive text-white hover:bg-olive-deep"
-                : "border-white/60 text-white hover:bg-white hover:text-olive-deep",
+              "whitespace-nowrap rounded-sm border px-4 py-2.5 text-xs font-medium uppercase tracking-[0.14em] transition-colors duration-300 xl:px-5",
+              scrolled
+                ? "border-green text-green hover:bg-green hover:text-cream"
+                : "border-cream/60 text-cream hover:bg-cream hover:text-green",
             )}
           >
-            Agendar conversa
+            Fale conosco
           </a>
         </nav>
 
@@ -103,8 +84,8 @@ export default function Header() {
           aria-controls="mobile-menu"
           aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
           className={cn(
-            "flex h-10 w-10 items-center justify-center rounded-full lg:hidden",
-            solid ? "text-olive-deep" : "text-white",
+            "flex h-10 w-10 items-center justify-center rounded-sm lg:hidden",
+            scrolled || menuOpen ? "text-green" : "text-cream",
           )}
         >
           {menuOpen ? (
@@ -118,7 +99,7 @@ export default function Header() {
       <div
         id="mobile-menu"
         className={cn(
-          "grid overflow-hidden bg-offwhite transition-[grid-template-rows] duration-300 ease-out lg:hidden",
+          "grid overflow-hidden bg-cream transition-[grid-template-rows] duration-300 ease-out lg:hidden",
           menuOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
         )}
       >
@@ -132,19 +113,17 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="rounded-lg px-2 py-3 text-sm font-medium uppercase tracking-[0.1em] text-olive-deep/90 transition-colors hover:bg-olive/5"
+                className="rounded-sm px-2 py-3 text-sm font-medium uppercase tracking-[0.1em] text-green/90 transition-colors hover:bg-green/5"
               >
                 {link.label}
               </a>
             ))}
             <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contato"
               onClick={() => setMenuOpen(false)}
-              className="mt-3 rounded-full bg-olive px-4 py-3.5 text-center text-sm font-medium uppercase tracking-[0.1em] text-white"
+              className="mt-3 rounded-sm bg-green px-4 py-3.5 text-center text-sm font-medium uppercase tracking-[0.1em] text-cream"
             >
-              Agendar conversa
+              Fale conosco
             </a>
           </nav>
         </div>

@@ -1,28 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  /* Paleta — verde-oliva (camisa), tons naturais e neutros claros. */
-  --color-olive: #414b35; /* verde-oliva principal */
-  --color-olive-deep: #29372d; /* verde profundo */
-  --color-olive-soft: #7c8a70; /* verde suave */
-  --color-white: #ffffff;
-  --color-offwhite: #f8f7f2; /* off-white */
-  --color-beige: #eae3d7; /* bege natural */
-  --color-muted: #62665f; /* cinza textos secundários */
-  --color-ink: #252a25; /* texto principal */
+  --color-green: #123a2c;
+  --color-green-dark: #0a241a;
+  --color-green-light: #1f5745;
+  --color-gold: #b0904f;
+  --color-gold-light: #cdac6e;
+  --color-cream: #f7f6f1;
+  --color-ink: #1c2530;
+  --color-ink-soft: #4b5563;
+  --color-border-soft: #e4e6de;
 }
 
 @theme inline {
-  --color-olive: var(--color-olive);
-  --color-olive-deep: var(--color-olive-deep);
-  --color-olive-soft: var(--color-olive-soft);
-  --color-white: var(--color-white);
-  --color-offwhite: var(--color-offwhite);
-  --color-beige: var(--color-beige);
-  --color-muted: var(--color-muted);
+  --color-green: var(--color-green);
+  --color-green-dark: var(--color-green-dark);
+  --color-green-light: var(--color-green-light);
+  --color-gold: var(--color-gold);
+  --color-gold-light: var(--color-gold-light);
+  --color-cream: var(--color-cream);
   --color-ink: var(--color-ink);
-  --font-serif: var(--font-dm-serif);
-  --font-sans: var(--font-dm-sans);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-border-soft: var(--color-border-soft);
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-inter);
 }
 
 html {
@@ -30,20 +31,18 @@ html {
 }
 
 body {
-  background: var(--color-offwhite);
+  background: var(--color-cream);
   color: var(--color-ink);
-  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+  font-family: var(--font-sans), ui-sans-serif, system-serif;
 }
 
 ::selection {
-  background: var(--color-beige);
-  color: var(--color-olive-deep);
+  background: var(--color-gold-light);
+  color: var(--color-green-dark);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-olive);
+  outline: 2px solid var(--color-gold);
   outline-offset: 2px;
 }
 

@@ -1,50 +1,88 @@
-import { Leaf } from "lucide-react";
+import { Mail, MapPin, Clock, Phone } from "lucide-react";
 import Container from "@/components/ui/Container";
+import SectionTitle from "@/components/ui/SectionTitle";
 import Reveal from "@/components/ui/Reveal";
 import WhatsAppButton from "@/components/shared/WhatsAppButton";
-import { WHATSAPP_DISPLAY } from "@/config/contact";
+import { siteConfig } from "@/data/site-config";
+
+const contactItems = [
+  {
+    icon: Phone,
+    label: "Telefone",
+    value: siteConfig.phoneDisplay,
+    href: `tel:${siteConfig.phone.replace(/\D/g, "")}`,
+  },
+  {
+    icon: Mail,
+    label: "E-mail",
+    value: siteConfig.email,
+    href: `mailto:${siteConfig.email}`,
+  },
+  {
+    icon: MapPin,
+    label: "Endereço",
+    value: `${siteConfig.address.street}, ${siteConfig.address.complement} — ${siteConfig.address.city}/${siteConfig.address.state}`,
+  },
+  {
+    icon: Clock,
+    label: "Atendimento",
+    value: siteConfig.businessHours,
+  },
+];
 
 export default function Contact() {
   return (
-    <section id="contato" className="bg-offwhite py-24 sm:py-32">
+    <section id="contato" className="bg-white py-24 sm:py-32">
       <Container>
         <Reveal>
-          <div className="relative mx-auto max-w-4xl overflow-hidden rounded-[2rem] bg-olive px-6 py-16 text-center text-white sm:px-12 sm:py-20">
-            <Leaf
-              aria-hidden="true"
-              className="pointer-events-none absolute -right-10 -top-10 h-56 w-56 text-white/[0.06]"
-              strokeWidth={0.5}
-            />
-            <Leaf
-              aria-hidden="true"
-              className="pointer-events-none absolute -bottom-12 -left-10 h-56 w-56 text-white/[0.06]"
-              strokeWidth={0.5}
-            />
+          <SectionTitle
+            eyebrow="Contato"
+            title="Fale diretamente com o escritório"
+            description="Estamos disponíveis pelos canais abaixo para o primeiro contato. Você também pode utilizar o formulário acima a qualquer momento."
+            align="center"
+            className="mx-auto"
+          />
+        </Reveal>
 
-            <div className="relative">
-              <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-beige">
-                Contato
-              </span>
-              <h2 className="mx-auto max-w-2xl font-serif text-3xl leading-tight text-white sm:text-4xl">
-                Você não precisa organizar tudo sozinho para começar uma
-                conversa.
-              </h2>
-              <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/80">
-                Se deseja conhecer melhor o trabalho e obter informações sobre o
-                acompanhamento psicológico, entre em contato para conversar
-                sobre as possibilidades de atendimento.
-              </p>
-
-              <div className="mt-9 flex justify-center">
-                <WhatsAppButton className="text-base">
-                  Conversar pelo WhatsApp
-                </WhatsAppButton>
+        <div className="mx-auto mt-16 grid max-w-4xl gap-8 sm:grid-cols-2">
+          {contactItems.map((item, index) => {
+            const Icon = item.icon;
+            const content = (
+              <div className="flex items-start gap-4">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-green/5 text-green">
+                  <Icon className="h-5 w-5" aria-hidden="true" />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft">
+                    {item.label}
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-green">
+                    {item.value}
+                  </p>
+                </div>
               </div>
+            );
 
-              <p className="mt-6 text-sm text-white/60">
-                WhatsApp: {WHATSAPP_DISPLAY}
-              </p>
-            </div>
+            return (
+              <Reveal key={item.label} delay={index * 60}>
+                {item.href ? (
+                  <a href={item.href} className="block transition-opacity hover:opacity-80">
+                    {content}
+                  </a>
+                ) : (
+                  content
+                )}
+              </Reveal>
+            );
+          })}
+        </div>
+
+        <Reveal delay={200}>
+          <div className="mx-auto mt-14 flex max-w-4xl flex-col items-center gap-4 border-t border-border-soft pt-14 text-center">
+            <p className="text-sm text-ink-soft">
+              Prefere falar agora? Envie uma mensagem pelo WhatsApp.
+            </p>
+            <WhatsAppButton />
           </div>
         </Reveal>
       </Container>
